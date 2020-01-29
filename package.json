@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "build": "parcel build ./src/build",
+    "build": "parcel build ./src/index.html",
     "test": "jest"
   },
   "repository": "git+https://github.com/hyakt/github-confirm.git",
@@ -19,7 +19,7 @@
     "@types/react": "^16.9.19",
     "@types/react-dom": "^16.9.5",
     "jest": "^25.1.0",
-    "parcel": "^2.0.0-alpha.3.2",
+    "parcel": "^1.12.4",
     "typescript": "^3.7.5"
   },
   "dependencies": {
