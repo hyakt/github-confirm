@@ -4,16 +4,26 @@
   "description": "Chrome Extention to check for mistakes when submitting issues or pr on Github.",
   "main": "index.js",
   "scripts": {
+    "dev": "parcel ./src/index.html --open",
+    "build": "parcel build ./src/build",
     "test": "jest"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hyakt/github-confirm.git"
-  },
+  "repository": "git+https://github.com/hyakt/github-confirm.git",
   "author": "Hayato KAJIYAMA",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hyakt/github-confirm/issues"
   },
-  "homepage": "https://github.com/hyakt/github-confirm#readme"
+  "homepage": "https://github.com/hyakt/github-confirm#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.19",
+    "@types/react-dom": "^16.9.5",
+    "jest": "^25.1.0",
+    "parcel": "^2.0.0-alpha.3.2",
+    "typescript": "^3.7.5"
+  },
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0"
+  }
 }
