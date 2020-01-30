@@ -3,9 +3,16 @@
   "version": "0.0.1",
   "description": "Chrome Extention to check for mistakes when submitting issues or pr on Github.",
   "main": "index.js",
+  "config": {
+    "target": "./src/index.html ./src/background.html"
+  },
   "scripts": {
-    "dev": "parcel ./src/index.html --open",
-    "build": "parcel build ./src/index.html",
+    "dev": "parcel $npm_package_config_target",
+    "predev": "yarn clean && yarn copyfile",
+    "build": "parcel build $npm_package_config_target",
+    "prebuild": "yarn clean && yarn copyfile",
+    "clean": "rm -rf dist/*",
+    "copyfile": "mkdir -p dist && cp src/manifest.json dist/ && cp -R src/public dist/",
     "test": "jest"
   },
   "repository": "git+https://github.com/hyakt/github-confirm.git",
