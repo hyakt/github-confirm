@@ -1,1 +1,5 @@
-document.querySelector('form.js-new-comment-form').addEventListener('submit', () => alert('are you sure?'))
+const form = document.querySelector('form.js-new-comment-form') as HTMLElement;
+form.addEventListener('submit', () => alert('are you sure?'))
+
+
+
