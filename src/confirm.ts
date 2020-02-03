@@ -1,5 +1,10 @@
+import React from 'react';
+import { render } from 'react-dom';
+
+import { Modal } from './utils/modal';
+
 const form = document.querySelector('form.js-new-comment-form') as HTMLElement;
-form.addEventListener('submit', () => alert('are you sure?'))
 
-
-
+form.addEventListener('submit', () => {
+  render(React.createElement(Modal, {root: document.body}), document.createElement('div'));
+});
