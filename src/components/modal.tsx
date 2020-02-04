@@ -13,7 +13,7 @@ export const Modal: React.FC<Props> = props => {
 
   return (
     createPortal(
-      <div id='github-confirm-modal'>
+      <div data-testid='github-confirm-modal'>
         <dl>
           <dt>Are you sure</dt>
           <dd>

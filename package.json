@@ -13,7 +13,8 @@
     "prebuild": "yarn clean && yarn copyfile",
     "clean": "rm -rf dist/*",
     "copyfile": "mkdir -p dist && cp src/manifest.json dist/ && cp -R src/public dist/",
-    "test": "jest"
+    "test": "jest",
+    "test:watch": "jest --watchAll"
   },
   "repository": "git+https://github.com/hyakt/github-confirm.git",
   "author": "Hayato KAJIYAMA",
