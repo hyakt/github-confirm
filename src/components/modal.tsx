@@ -5,13 +5,11 @@ type Props = { root: HTMLElement }
 
 export const Modal: React.FC<Props> = props => {
 
-  const cancel = () => {
+  const handleCancel = () => {
   }
 
-  const submit = () => {
+  const handleOk = () => {
   }
-
-  console.log('modal: ', 'modal');
 
   return (
     createPortal(
@@ -19,10 +17,10 @@ export const Modal: React.FC<Props> = props => {
         <dl>
           <dt>Are you sure</dt>
           <dd>
-            <button onClick={submit}>submit</button>
+            <button onClick={handleOk}>submit</button>
           </dd>
           <dd>
-            <button onClick={cancel}>cancel</button>
+            <button onClick={handleCancel}>cancel</button>
           </dd>
         </dl>
       </div>
