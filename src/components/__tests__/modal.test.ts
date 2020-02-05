@@ -1,19 +1,27 @@
 import '@testing-library/jest-dom/extend-expect'
 import React from 'react'
-import {render, cleanup} from '@testing-library/react'
+import {render, cleanup, fireEvent} from '@testing-library/react'
 
 import {Modal} from '../modal'
 
-afterEach(cleanup);
-
 describe('components/modal', () => {
+  afterEach(cleanup);
   describe('when render the modal component', () => {
     it('create portal', () => {
-      const portalRoot = document.createElement('div')
-      const modal = render(React.createElement(Modal, {root: portalRoot}))
-      expect(modal.container).toBeInTheDocument();
+      const {container} = render(React.createElement(Modal))
+      expect(container).toBeInTheDocument();
     })
-    it.todo('destory portal when on click Ok button')
-    it.todo('destory portal when on click cancel button')
+    it('destory portal when on click Ok button', () => {
+      const {getByText, queryByTestId} = render(React.createElement(Modal))
+      expect(queryByTestId('github-confirm-modal')).not.toBeNull()
+      fireEvent.click(getByText('OK'))
+      expect(queryByTestId('github-confirm-modal')).toBeNull()
+    })
+    it('destory portal when on click cancel button', () => {
+      const {getByText, queryByTestId} = render(React.createElement(Modal))
+      expect(queryByTestId('github-confirm-modal')).not.toBeNull()
+      fireEvent.click(getByText('Cancel'))
+      expect(queryByTestId('github-confirm-modal')).toBeNull()
+    })
   })
 });

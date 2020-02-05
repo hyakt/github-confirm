@@ -1,30 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createPortal } from 'react-dom';
 
-type Props = { root: HTMLElement }
+type Props = { }
 
 export const Modal: React.FC<Props> = props => {
 
-  const handleCancel = () => {
+  const [display, setDisplay] = useState(true);
+
+  const handleOK = () => {
+    setDisplay(false)
   }
 
-  const handleOk = () => {
+  const handleCancel = () => {
+    setDisplay(false)
   }
 
   return (
     createPortal(
-      <div data-testid='github-confirm-modal'>
-        <dl>
-          <dt>Are you sure</dt>
-          <dd>
-            <button onClick={handleOk}>submit</button>
-          </dd>
-          <dd>
-            <button onClick={handleCancel}>cancel</button>
-          </dd>
-        </dl>
-      </div>
-      , props.root
-    )
-  )
+      display ?
+        <div data-testid='github-confirm-modal'>
+          <dl>
+            <dt>Are you sure</dt>
+            <dd>
+              <button onClick={handleOK}>OK</button>
+            </dd>
+            <dd>
+              <button onClick={handleCancel}>Cancel</button>
+            </dd>
+          </dl>
+        </div>
+        : null,
+      document.body
+  ))
 }
