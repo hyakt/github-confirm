@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
-import { createPortal } from 'react-dom';
+import { createPortal } from 'react-dom'
+import styled from 'styled-components'
 
 type Props = { }
 
 export const Modal: React.FC<Props> = props => {
 
   const [display, setDisplay] = useState(true);
+
+  const Modal = styled.
+
 
   const handleOK = () => {
     setDisplay(false)
