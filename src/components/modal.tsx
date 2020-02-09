@@ -49,9 +49,25 @@ const Button = styled.button`
   border-radius: 3px;
 `
 
-export const Modal: React.FC<Props> = props => {
+export const Modal: React.FC<Props> = () => {
 
-  const [isDisplay, setIsDisplay] = useState(true)
+  const [isDisplay, setIsDisplay] = useState(false)
+
+  useEffect(() => {
+    window.addEventListener('click', (event) => {
+      const target = event.target;
+      const sources = document.querySelectorAll('#partial-new-comment-form-actions button[type="submit"]')
+
+      sources.forEach(source => {
+        if (source !== null) {
+          target === source && setIsDisplay(true)
+          Array.from(source.children).forEach(child => {
+            target === child && setIsDisplay(true)
+          })
+        }
+      })
+    }, true)
+  }, [])
 
   const onClickCover = () => {
     setIsDisplay(false)
@@ -62,6 +78,9 @@ export const Modal: React.FC<Props> = props => {
   }
 
   const handleCancel = () => {
+    console.log('event.target: ', event.target);
+    event.preventDefault()
+    event.stopPropagation()
     setIsDisplay(false)
   }
 
