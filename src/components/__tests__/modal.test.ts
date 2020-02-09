@@ -11,7 +11,7 @@ describe('components/modal', () => {
       const { container } = render(React.createElement(Modal))
       expect(container).toBeInTheDocument();
     })
-    it('destory portal when click Ok button', () => {
+    it('destory portal when click OK button', () => {
       const { getByText, queryByTestId } = render(React.createElement(Modal))
       expect(queryByTestId('github-confirm-modal')).not.toBeNull()
       fireEvent.click(getByText('OK'))
@@ -29,5 +29,7 @@ describe('components/modal', () => {
       fireEvent.click(getByTestId('github-confirm-modal-cover'))
       expect(queryByTestId('github-confirm-modal')).toBeNull()
     })
+    it.todo('stop the event of props when render component');
+    it.todo('execute event when click handleOK');
   })
 });

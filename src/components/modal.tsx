@@ -1,8 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { createPortal } from 'react-dom'
 import styled from 'styled-components'
 
-type Props = {}
+type Props = {
+  event: Event,
+}
 
 const Cover = styled.div`
   position: fixed;
@@ -53,7 +55,7 @@ export const Modal: React.FC<Props> = props => {
 
   const onClickCover = () => {
     setIsDisplay(false)
-  };
+  }
 
   const handleOK = () => {
     setIsDisplay(false)
