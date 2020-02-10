@@ -52,15 +52,20 @@ const Button = styled.button`
 export const Modal: React.FC<Props> = () => {
 
   const [isDisplay, setIsDisplay] = useState(false)
+  const [event, setEvent] = useState<Event>()
 
   useEffect(() => {
-    window.addEventListener('click', (event) => {
+    window.addEventListener('mousedown', (event) => {
       const target = event.target;
       const sources = document.querySelectorAll('#partial-new-comment-form-actions button[type="submit"]')
 
       sources.forEach(source => {
         if (source !== null) {
-          target === source && setIsDisplay(true)
+          if (target === source) {
+            setEvent(event)
+            event.stopPropagation()
+            setIsDisplay(true)
+          }
           Array.from(source.children).forEach(child => {
             target === child && setIsDisplay(true)
           })
@@ -74,13 +79,14 @@ export const Modal: React.FC<Props> = () => {
   }
 
   const handleOK = () => {
+    event.target?.dispatchEvent(new MouseEvent('click', {
+      'bubbles': true,
+      'cancelable': true
+    }))
     setIsDisplay(false)
   }
 
   const handleCancel = () => {
-    console.log('event.target: ', event.target);
-    event.preventDefault()
-    event.stopPropagation()
     setIsDisplay(false)
   }
 
