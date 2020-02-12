@@ -61,14 +61,11 @@ export const Modal: React.FC<Props> = () => {
 
       sources.forEach(source => {
         if (source !== null) {
-          if (target === source) {
+          if (target === source || Array.from(source.children).some(child => target === child)) {
             setEvent(event)
             event.stopPropagation()
             setIsDisplay(true)
           }
-          Array.from(source.children).forEach(child => {
-            target === child && setIsDisplay(true)
-          })
         }
       })
     }, true)
