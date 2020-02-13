@@ -15,6 +15,7 @@ const Cover = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 1000;
 `
 
 const Container = styled.div`
@@ -30,6 +31,7 @@ const Container = styled.div`
   background: #fafafa;
   border-radius: 3px;
   box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
+  z-index: 1001;
 `
 
 const Title = styled.dt`
