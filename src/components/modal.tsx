@@ -59,8 +59,7 @@ export const Modal: React.FC<Props> = () => {
   useEffect(() => {
     window.addEventListener('mousedown', (event) => {
       const target = event.target;
-      const sources = document.querySelectorAll('#partial-new-comment-form-actions button[type="submit"]')
-
+      const sources = document.querySelectorAll('button[type="submit"]')
       sources.forEach(source => {
         if (source !== null) {
           if (target === source || Array.from(source.children).some(child => target === child)) {
@@ -78,11 +77,13 @@ export const Modal: React.FC<Props> = () => {
   }
 
   const handleOK = () => {
-    event.target?.dispatchEvent(new MouseEvent('click', {
-      'bubbles': true,
-      'cancelable': true
-    }))
-    setIsDisplay(false)
+    if (event !== undefined) {
+      event.target?.dispatchEvent(new MouseEvent('click', {
+        'bubbles': true,
+        'cancelable': true
+      }))
+      setIsDisplay(false)
+    }
   }
 
   const handleCancel = () => {
