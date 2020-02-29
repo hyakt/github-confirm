@@ -57,6 +57,16 @@ export const Modal: React.FC<Props> = () => {
   const [event, setEvent] = useState<Event>()
 
   useEffect(() => {
+    window.addEventListener('keydown', (event) => {
+      if (event.ctrlKey || event.metaKey) {
+        if (event.keyCode === 13) {
+          setEvent(event)
+          event.stopPropagation()
+          event.preventDefault()
+          setIsDisplay(true)
+        }
+      }
+    });
     window.addEventListener('mousedown', (event) => {
       const target = event.target;
       const sources = document.querySelectorAll('button[type="submit"]')
