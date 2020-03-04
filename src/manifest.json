@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "browser_action": {
     "default_popup": "index.html",
-    "default_icon": "public/images/icon.png"
+    "default_icon": "public/icons/icon128.png"
   },
   "content_scripts": [
     {
@@ -13,6 +13,8 @@
     }
   ],
   "icons": {
-    "128": "public/images/icon.png"
+    "16": "public/icons/icon16.png",
+    "48": "public/icons/icon48.png",
+    "128": "public/icons/icon128.png"
   }
 }
