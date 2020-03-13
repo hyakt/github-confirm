@@ -4,7 +4,7 @@
   "description": "Chrome Extention to check for mistakes when submitting issues or pr on Github.",
   "main": "index.js",
   "config": {
-    "target": "./src/index.html ./src/confirm.ts"
+    "target": "./src/index.html ./src/confirm.tsx"
   },
   "scripts": {
     "dev": "parcel $npm_package_config_target",
