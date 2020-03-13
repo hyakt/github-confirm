@@ -1,9 +1,5 @@
 import React from 'react';
 import { render } from 'react-dom';
+import { Settings } from './components/settings'
 
-const App: React.SFC = () => (
-  <div>App</div>
-);
-
-render(<App />, document.getElementById('root'));
-
+render(<Settings />, document.getElementById('root'));

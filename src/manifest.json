@@ -6,6 +6,9 @@
     "default_popup": "index.html",
     "default_icon": "public/icons/icon128.png"
   },
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
       "matches": ["https://github.com/*"],
