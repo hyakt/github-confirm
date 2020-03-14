@@ -22,12 +22,13 @@ yarn build
 How to release 🚀
 -----
 yet
-- url
+
 
 todo
 ----
 
-- サブミッションフォームの確認
 - 取得のロジックとフォーム要素の分離
+- 設定ページの作成
 - Google Extentionに載せる
+
 
